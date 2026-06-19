@@ -3,6 +3,7 @@ package org.example;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 //import org.springframework.beans.factory.annotation.Autowired;
+import org.example.aop.Loggable;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,6 +24,7 @@ public class TaskManager {
 //        System.out.println("TaskManager preDestroy");
     }
 
+    @Loggable
     public Integer printTask() {
         System.out.println("Current task: " + task.toString());
 //        throw new RuntimeException("Exception in taskManager");
