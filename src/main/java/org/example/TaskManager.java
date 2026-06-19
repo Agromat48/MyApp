@@ -24,7 +24,7 @@ public class TaskManager {
 //        System.out.println("TaskManager preDestroy");
     }
 
-    @Loggable
+    @Loggable(times = 1)
     public Integer printTask() {
         System.out.println("Current task: " + task.toString());
 //        throw new RuntimeException("Exception in taskManager");

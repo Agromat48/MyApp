@@ -32,7 +32,7 @@ public class LoggingAspect {
 //        System.out.println("После выполнения метода: " + joinPoint.getSignature().getName());
 //    }
 
-//    @Around("execution(* org.example.TaskManager.*(..))")
+//    @Around("execution(* org.example.TaskManager.*(.))")
 //    public Object logAround(ProceedingJoinPoint proceedingJoinPoint) {
 //        System.out.println("До метода");
 //        //currentTime
@@ -51,6 +51,10 @@ public class LoggingAspect {
 
     @Before("@annotation(loggable)")
     public void log(JoinPoint joinPoint, Loggable loggable) {
-        System.out.println("LOG: before method: " + joinPoint.getSignature().getName());
+        for (int i = 0; i < loggable.times(); i++) {
+            System.out.printf("LOG %s: before method: %s\n",
+                    loggable.value(),
+                    joinPoint.getSignature().getName());
+        }
     }
 }

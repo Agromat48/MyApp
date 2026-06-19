@@ -13,7 +13,7 @@ public class TaskExecuter {
         this.task = task;
     }
 
-    @Loggable
+    @Loggable("ERROR")
     public void executeTask(){
         System.out.println("I am carrying it out: " + task + ". His time: " + task.getDuration());
     }
