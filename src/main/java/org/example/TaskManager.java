@@ -2,7 +2,7 @@ package org.example;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,7 +23,8 @@ public class TaskManager {
 //        System.out.println("TaskManager preDestroy");
     }
 
-    public void printTask() {
+    public Integer printTask() {
         System.out.println("Current task: " + task.toString());
+        return task.getDuration();
     }
 }
