@@ -25,6 +25,7 @@ public class TaskManager {
 
     public Integer printTask() {
         System.out.println("Current task: " + task.toString());
+//        throw new RuntimeException("Exception in taskManager");
         return task.getDuration();
     }
 }
