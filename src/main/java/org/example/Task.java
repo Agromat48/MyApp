@@ -22,12 +22,12 @@ public class Task {
 
     @PostConstruct
     public void postConstruct() {
-        System.out.println("Task postConstruct");
+//        System.out.println("Task postConstruct");
     }
 
     @PreDestroy
     public void preDestroy() {
-        System.out.println("Task preDestroy");
+//        System.out.println("Task preDestroy");
     }
 
     public Integer getDuration() {

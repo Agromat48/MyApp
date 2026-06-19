@@ -15,12 +15,12 @@ public class TaskManager {
 
     @PostConstruct
     public void postConstruct() {
-        System.out.println("TaskManager postConstruct");
+//        System.out.println("TaskManager postConstruct");
     }
 
     @PreDestroy
     public void preDestroy() {
-        System.out.println("TaskManager preDestroy");
+//        System.out.println("TaskManager preDestroy");
     }
 
     public void printTask() {
