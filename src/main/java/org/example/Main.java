@@ -4,7 +4,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.text.Annotation;
 
-public class Main {
+public class  Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext("org.example");
@@ -20,5 +20,10 @@ public class Main {
 
         TaskExecuter taskExecuter = context.getBean(TaskExecuter.class);
         taskExecuter.executeTask();
+
+        var properties = context.getBean(TaskProperties.class);
+        System.out.println(properties);
+
+        context.close();
     }
 }

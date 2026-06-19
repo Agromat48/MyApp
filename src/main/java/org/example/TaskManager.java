@@ -1,5 +1,7 @@
 package org.example;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +11,16 @@ public class TaskManager {
 
     public TaskManager(Task task) {
         this.task = task;
+    }
+
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("TaskManager postConstruct");
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println("TaskManager preDestroy");
     }
 
     public void printTask() {

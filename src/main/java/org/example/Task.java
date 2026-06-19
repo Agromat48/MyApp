@@ -1,10 +1,13 @@
 package org.example;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component("mainTask")
-@Scope("prototype")
+//@Scope("prototype")
 public class Task {
     @Override
     public String toString() {
@@ -15,15 +18,27 @@ public class Task {
     }
 
     private final String name;
-    private final Long duration;
+    private final Integer duration;
 
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("Task postConstruct");
+    }
 
-    public Long getDuration() {
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println("Task preDestroy");
+    }
+
+    public Integer getDuration() {
         return duration;
     }
 
-    public Task() {
-        this.duration = 60L;
-        this.name = "Task";
+    public Task(
+            @Value("${task.name}") String name,
+            @Value("${task.duration}") Integer duration
+    ) {
+        this.duration = duration;
+        this.name = name;
     }
 }
